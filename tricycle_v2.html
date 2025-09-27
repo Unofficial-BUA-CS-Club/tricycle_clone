@@ -675,19 +675,19 @@
     const canvas = document.getElementById('gameCanvas');
     canvas.addEventListener('mousedown', (e) => {
         dragging = true;
-        selection = [];  // Clear previous selection when starting a drag
+        selection = [];  
         const rect = canvas.getBoundingClientRect();
         const x = e.clientX - rect.left;
         const y = e.clientY - rect.top;
         const cell = getCellUnderMouse(x, y);
-        if (cell && !keysPressed[' ']) {  // only add if space NOT held
+        if (cell && !keysPressed[' ']) {  
             addToSelection(cell);
             draw();
         }
     });
 
     canvas.addEventListener('mousemove', (e) => {
-        if (!dragging) return; //This is pointless if its not dragging!
+        if (!dragging) return; 
 
         const rect = canvas.getBoundingClientRect();
         const x = e.clientX - rect.left;
@@ -718,7 +718,6 @@
         }
     });
 
-    // Your game initialization and loop...
     function gameLoop(cooldown){
 
         if (keysPressed['s']){
